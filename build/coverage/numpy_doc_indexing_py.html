@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <title>Coverage for numpy/doc/indexing.py: 100%</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="jquery.isonscreen.js"></script>
+    <script type="text/javascript" src="coverage_html.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(coverage.pyfile_ready);
+    </script>
+</head>
+<body class="pyfile">
+<div id="header">
+    <div class="content">
+        <h1>Coverage for <b>numpy/doc/indexing.py</b> :
+            <span class="pc_cov">100%</span>
+        </h1>
+        <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
+        <h2 class="stats">
+            0 statements &nbsp;
+            <span class="run shortkey_r button_toggle_run">0 run</span>
+            <span class="mis show_mis shortkey_m button_toggle_mis">0 missing</span>
+            <span class="exc show_exc shortkey_x button_toggle_exc">0 excluded</span>
+                <span class="par run show_par shortkey_p button_toggle_par">0 partial</span>
+        </h2>
+    </div>
+</div>
+<div class="help_panel">
+    <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
+    <p class="legend">Hot-keys on this page</p>
+    <div>
+    <p class="keyhelp">
+        <span class="key">r</span>
+        <span class="key">m</span>
+        <span class="key">x</span>
+        <span class="key">p</span> &nbsp; toggle line displays
+    </p>
+    <p class="keyhelp">
+        <span class="key">j</span>
+        <span class="key">k</span> &nbsp; next/prev highlighted chunk
+    </p>
+    <p class="keyhelp">
+        <span class="key">0</span> &nbsp; (zero) top of page
+    </p>
+    <p class="keyhelp">
+        <span class="key">1</span> &nbsp; (one) first highlighted chunk
+    </p>
+    </div>
+</div>
+<div id="source">
+    <p id="t1" class="pln"><span class="n"><a href="#t1">1</a></span><span class="t"><span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t2" class="pln"><span class="n"><a href="#t2">2</a></span><span class="t"><span class="str">==============</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="str">Array indexing</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t4" class="pln"><span class="n"><a href="#t4">4</a></span><span class="t"><span class="str">==============</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t5" class="pln"><span class="n"><a href="#t5">5</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t6" class="pln"><span class="n"><a href="#t6">6</a></span><span class="t"><span class="str">Array indexing refers to any use of the square brackets ([]) to index</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t7" class="pln"><span class="n"><a href="#t7">7</a></span><span class="t"><span class="str">array values. There are many options to indexing, which give numpy</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t8" class="pln"><span class="n"><a href="#t8">8</a></span><span class="t"><span class="str">indexing great power, but with power comes some complexity and the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t9" class="pln"><span class="n"><a href="#t9">9</a></span><span class="t"><span class="str">potential for confusion. This section is just an overview of the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t10" class="pln"><span class="n"><a href="#t10">10</a></span><span class="t"><span class="str">various options and issues related to indexing. Aside from single</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t11" class="pln"><span class="n"><a href="#t11">11</a></span><span class="t"><span class="str">element indexing, the details on most of these options are to be</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t12" class="pln"><span class="n"><a href="#t12">12</a></span><span class="t"><span class="str">found in related sections.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t13" class="pln"><span class="n"><a href="#t13">13</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t14" class="pln"><span class="n"><a href="#t14">14</a></span><span class="t"><span class="str">Assignment vs referencing</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t15" class="pln"><span class="n"><a href="#t15">15</a></span><span class="t"><span class="str">=========================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t17" class="pln"><span class="n"><a href="#t17">17</a></span><span class="t"><span class="str">Most of the following examples show the use of indexing when</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t18" class="pln"><span class="n"><a href="#t18">18</a></span><span class="t"><span class="str">referencing data in an array. The examples work just as well</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t19" class="pln"><span class="n"><a href="#t19">19</a></span><span class="t"><span class="str">when assigning to an array. See the section at the end for</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t20" class="pln"><span class="n"><a href="#t20">20</a></span><span class="t"><span class="str">specific examples and explanations on how assignments work.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t21" class="pln"><span class="n"><a href="#t21">21</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t22" class="pln"><span class="n"><a href="#t22">22</a></span><span class="t"><span class="str">Single element indexing</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t23" class="pln"><span class="n"><a href="#t23">23</a></span><span class="t"><span class="str">=======================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t24" class="pln"><span class="n"><a href="#t24">24</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t25" class="pln"><span class="n"><a href="#t25">25</a></span><span class="t"><span class="str">Single element indexing for a 1-D array is what one expects. It work</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t26" class="pln"><span class="n"><a href="#t26">26</a></span><span class="t"><span class="str">exactly like that for other standard Python sequences. It is 0-based,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t27" class="pln"><span class="n"><a href="#t27">27</a></span><span class="t"><span class="str">and accepts negative indices for indexing from the end of the array. ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t28" class="pln"><span class="n"><a href="#t28">28</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t29" class="pln"><span class="n"><a href="#t29">29</a></span><span class="t"><span class="str">    >>> x = np.arange(10)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t30" class="pln"><span class="n"><a href="#t30">30</a></span><span class="t"><span class="str">    >>> x[2]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t31" class="pln"><span class="n"><a href="#t31">31</a></span><span class="t"><span class="str">    2</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t32" class="pln"><span class="n"><a href="#t32">32</a></span><span class="t"><span class="str">    >>> x[-2]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t33" class="pln"><span class="n"><a href="#t33">33</a></span><span class="t"><span class="str">    8</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t34" class="pln"><span class="n"><a href="#t34">34</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t35" class="pln"><span class="n"><a href="#t35">35</a></span><span class="t"><span class="str">Unlike lists and tuples, numpy arrays support multidimensional indexing</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t36" class="pln"><span class="n"><a href="#t36">36</a></span><span class="t"><span class="str">for multidimensional arrays. That means that it is not necessary to</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t37" class="pln"><span class="n"><a href="#t37">37</a></span><span class="t"><span class="str">separate each dimension's index into its own set of square brackets. ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t38" class="pln"><span class="n"><a href="#t38">38</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t39" class="pln"><span class="n"><a href="#t39">39</a></span><span class="t"><span class="str">    >>> x.shape = (2,5) # now x is 2-dimensional</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t40" class="pln"><span class="n"><a href="#t40">40</a></span><span class="t"><span class="str">    >>> x[1,3]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t41" class="pln"><span class="n"><a href="#t41">41</a></span><span class="t"><span class="str">    8</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t42" class="pln"><span class="n"><a href="#t42">42</a></span><span class="t"><span class="str">    >>> x[1,-1]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t43" class="pln"><span class="n"><a href="#t43">43</a></span><span class="t"><span class="str">    9</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t44" class="pln"><span class="n"><a href="#t44">44</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t45" class="pln"><span class="n"><a href="#t45">45</a></span><span class="t"><span class="str">Note that if one indexes a multidimensional array with fewer indices</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t46" class="pln"><span class="n"><a href="#t46">46</a></span><span class="t"><span class="str">than dimensions, one gets a subdimensional array. For example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t47" class="pln"><span class="n"><a href="#t47">47</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t48" class="pln"><span class="n"><a href="#t48">48</a></span><span class="t"><span class="str">    >>> x[0]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t49" class="pln"><span class="n"><a href="#t49">49</a></span><span class="t"><span class="str">    array([0, 1, 2, 3, 4])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t50" class="pln"><span class="n"><a href="#t50">50</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t51" class="pln"><span class="n"><a href="#t51">51</a></span><span class="t"><span class="str">That is, each index specified selects the array corresponding to the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t52" class="pln"><span class="n"><a href="#t52">52</a></span><span class="t"><span class="str">rest of the dimensions selected. In the above example, choosing 0</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t53" class="pln"><span class="n"><a href="#t53">53</a></span><span class="t"><span class="str">means that the remaining dimension of length 5 is being left unspecified,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t54" class="pln"><span class="n"><a href="#t54">54</a></span><span class="t"><span class="str">and that what is returned is an array of that dimensionality and size.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t55" class="pln"><span class="n"><a href="#t55">55</a></span><span class="t"><span class="str">It must be noted that the returned array is not a copy of the original,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t56" class="pln"><span class="n"><a href="#t56">56</a></span><span class="t"><span class="str">but points to the same values in memory as does the original array.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t57" class="pln"><span class="n"><a href="#t57">57</a></span><span class="t"><span class="str">In  this case, the 1-D array at the first position (0) is returned.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t58" class="pln"><span class="n"><a href="#t58">58</a></span><span class="t"><span class="str">So using a single index on the returned array, results in a single</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t59" class="pln"><span class="n"><a href="#t59">59</a></span><span class="t"><span class="str">element being returned. That is: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t60" class="pln"><span class="n"><a href="#t60">60</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t61" class="pln"><span class="n"><a href="#t61">61</a></span><span class="t"><span class="str">    >>> x[0][2]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t62" class="pln"><span class="n"><a href="#t62">62</a></span><span class="t"><span class="str">    2</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t63" class="pln"><span class="n"><a href="#t63">63</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t64" class="pln"><span class="n"><a href="#t64">64</a></span><span class="t"><span class="str">So note that ``x[0,2] = x[0][2]`` though the second case is more</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t65" class="pln"><span class="n"><a href="#t65">65</a></span><span class="t"><span class="str">inefficient as a new temporary array is created after the first index</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t66" class="pln"><span class="n"><a href="#t66">66</a></span><span class="t"><span class="str">that is subsequently indexed by 2.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t67" class="pln"><span class="n"><a href="#t67">67</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t68" class="pln"><span class="n"><a href="#t68">68</a></span><span class="t"><span class="str">Note to those used to IDL or Fortran memory order as it relates to</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t69" class="pln"><span class="n"><a href="#t69">69</a></span><span class="t"><span class="str">indexing.  NumPy uses C-order indexing. That means that the last</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t70" class="pln"><span class="n"><a href="#t70">70</a></span><span class="t"><span class="str">index usually represents the most rapidly changing memory location,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t71" class="pln"><span class="n"><a href="#t71">71</a></span><span class="t"><span class="str">unlike Fortran or IDL, where the first index represents the most</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t72" class="pln"><span class="n"><a href="#t72">72</a></span><span class="t"><span class="str">rapidly changing location in memory. This difference represents a</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t73" class="pln"><span class="n"><a href="#t73">73</a></span><span class="t"><span class="str">great potential for confusion.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t74" class="pln"><span class="n"><a href="#t74">74</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t75" class="pln"><span class="n"><a href="#t75">75</a></span><span class="t"><span class="str">Other indexing options</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t76" class="pln"><span class="n"><a href="#t76">76</a></span><span class="t"><span class="str">======================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t77" class="pln"><span class="n"><a href="#t77">77</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t78" class="pln"><span class="n"><a href="#t78">78</a></span><span class="t"><span class="str">It is possible to slice and stride arrays to extract arrays of the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t79" class="pln"><span class="n"><a href="#t79">79</a></span><span class="t"><span class="str">same number of dimensions, but of different sizes than the original.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t80" class="pln"><span class="n"><a href="#t80">80</a></span><span class="t"><span class="str">The slicing and striding works exactly the same way it does for lists</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t81" class="pln"><span class="n"><a href="#t81">81</a></span><span class="t"><span class="str">and tuples except that they can be applied to multiple dimensions as</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t82" class="pln"><span class="n"><a href="#t82">82</a></span><span class="t"><span class="str">well. A few examples illustrates best: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t83" class="pln"><span class="n"><a href="#t83">83</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t84" class="pln"><span class="n"><a href="#t84">84</a></span><span class="t"><span class="str"> >>> x = np.arange(10)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t85" class="pln"><span class="n"><a href="#t85">85</a></span><span class="t"><span class="str"> >>> x[2:5]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t86" class="pln"><span class="n"><a href="#t86">86</a></span><span class="t"><span class="str"> array([2, 3, 4])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t87" class="pln"><span class="n"><a href="#t87">87</a></span><span class="t"><span class="str"> >>> x[:-7]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t88" class="pln"><span class="n"><a href="#t88">88</a></span><span class="t"><span class="str"> array([0, 1, 2])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t89" class="pln"><span class="n"><a href="#t89">89</a></span><span class="t"><span class="str"> >>> x[1:7:2]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t90" class="pln"><span class="n"><a href="#t90">90</a></span><span class="t"><span class="str"> array([1, 3, 5])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t91" class="pln"><span class="n"><a href="#t91">91</a></span><span class="t"><span class="str"> >>> y = np.arange(35).reshape(5,7)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t92" class="pln"><span class="n"><a href="#t92">92</a></span><span class="t"><span class="str"> >>> y[1:5:2,::3]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t93" class="pln"><span class="n"><a href="#t93">93</a></span><span class="t"><span class="str"> array([[ 7, 10, 13],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t94" class="pln"><span class="n"><a href="#t94">94</a></span><span class="t"><span class="str">        [21, 24, 27]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t95" class="pln"><span class="n"><a href="#t95">95</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t96" class="pln"><span class="n"><a href="#t96">96</a></span><span class="t"><span class="str">Note that slices of arrays do not copy the internal array data but</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t97" class="pln"><span class="n"><a href="#t97">97</a></span><span class="t"><span class="str">only produce new views of the original data. This is different from</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t98" class="pln"><span class="n"><a href="#t98">98</a></span><span class="t"><span class="str">list or tuple slicing and an explicit ``copy()`` is recommended if</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t99" class="pln"><span class="n"><a href="#t99">99</a></span><span class="t"><span class="str">the original data is not required anymore.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t100" class="pln"><span class="n"><a href="#t100">100</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t101" class="pln"><span class="n"><a href="#t101">101</a></span><span class="t"><span class="str">It is possible to index arrays with other arrays for the purposes of</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t102" class="pln"><span class="n"><a href="#t102">102</a></span><span class="t"><span class="str">selecting lists of values out of arrays into new arrays. There are</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t103" class="pln"><span class="n"><a href="#t103">103</a></span><span class="t"><span class="str">two different ways of accomplishing this. One uses one or more arrays</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t104" class="pln"><span class="n"><a href="#t104">104</a></span><span class="t"><span class="str">of index values. The other involves giving a boolean array of the proper</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t105" class="pln"><span class="n"><a href="#t105">105</a></span><span class="t"><span class="str">shape to indicate the values to be selected. Index arrays are a very</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t106" class="pln"><span class="n"><a href="#t106">106</a></span><span class="t"><span class="str">powerful tool that allow one to avoid looping over individual elements in</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t107" class="pln"><span class="n"><a href="#t107">107</a></span><span class="t"><span class="str">arrays and thus greatly improve performance.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t108" class="pln"><span class="n"><a href="#t108">108</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t109" class="pln"><span class="n"><a href="#t109">109</a></span><span class="t"><span class="str">It is possible to use special features to effectively increase the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t110" class="pln"><span class="n"><a href="#t110">110</a></span><span class="t"><span class="str">number of dimensions in an array through indexing so the resulting</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t111" class="pln"><span class="n"><a href="#t111">111</a></span><span class="t"><span class="str">array acquires the shape needed for use in an expression or with a</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t112" class="pln"><span class="n"><a href="#t112">112</a></span><span class="t"><span class="str">specific function.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t113" class="pln"><span class="n"><a href="#t113">113</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t114" class="pln"><span class="n"><a href="#t114">114</a></span><span class="t"><span class="str">Index arrays</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t115" class="pln"><span class="n"><a href="#t115">115</a></span><span class="t"><span class="str">============</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t116" class="pln"><span class="n"><a href="#t116">116</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t117" class="pln"><span class="n"><a href="#t117">117</a></span><span class="t"><span class="str">NumPy arrays may be indexed with other arrays (or any other sequence-</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t118" class="pln"><span class="n"><a href="#t118">118</a></span><span class="t"><span class="str">like object that can be converted to an array, such as lists, with the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t119" class="pln"><span class="n"><a href="#t119">119</a></span><span class="t"><span class="str">exception of tuples; see the end of this document for why this is). The</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t120" class="pln"><span class="n"><a href="#t120">120</a></span><span class="t"><span class="str">use of index arrays ranges from simple, straightforward cases to</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t121" class="pln"><span class="n"><a href="#t121">121</a></span><span class="t"><span class="str">complex, hard-to-understand cases. For all cases of index arrays, what</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t122" class="pln"><span class="n"><a href="#t122">122</a></span><span class="t"><span class="str">is returned is a copy of the original data, not a view as one gets for</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t123" class="pln"><span class="n"><a href="#t123">123</a></span><span class="t"><span class="str">slices.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t124" class="pln"><span class="n"><a href="#t124">124</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t125" class="pln"><span class="n"><a href="#t125">125</a></span><span class="t"><span class="str">Index arrays must be of integer type. Each value in the array indicates</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t126" class="pln"><span class="n"><a href="#t126">126</a></span><span class="t"><span class="str">which value in the array to use in place of the index. To illustrate: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t127" class="pln"><span class="n"><a href="#t127">127</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t128" class="pln"><span class="n"><a href="#t128">128</a></span><span class="t"><span class="str"> >>> x = np.arange(10,1,-1)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t129" class="pln"><span class="n"><a href="#t129">129</a></span><span class="t"><span class="str"> >>> x</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t130" class="pln"><span class="n"><a href="#t130">130</a></span><span class="t"><span class="str"> array([10,  9,  8,  7,  6,  5,  4,  3,  2])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t131" class="pln"><span class="n"><a href="#t131">131</a></span><span class="t"><span class="str"> >>> x[np.array([3, 3, 1, 8])]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t132" class="pln"><span class="n"><a href="#t132">132</a></span><span class="t"><span class="str"> array([7, 7, 9, 2])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t133" class="pln"><span class="n"><a href="#t133">133</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t134" class="pln"><span class="n"><a href="#t134">134</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t135" class="pln"><span class="n"><a href="#t135">135</a></span><span class="t"><span class="str">The index array consisting of the values 3, 3, 1 and 8 correspondingly</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t136" class="pln"><span class="n"><a href="#t136">136</a></span><span class="t"><span class="str">create an array of length 4 (same as the index array) where each index</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t137" class="pln"><span class="n"><a href="#t137">137</a></span><span class="t"><span class="str">is replaced by the value the index array has in the array being indexed.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t138" class="pln"><span class="n"><a href="#t138">138</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t139" class="pln"><span class="n"><a href="#t139">139</a></span><span class="t"><span class="str">Negative values are permitted and work as they do with single indices</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t140" class="pln"><span class="n"><a href="#t140">140</a></span><span class="t"><span class="str">or slices: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t141" class="pln"><span class="n"><a href="#t141">141</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t142" class="pln"><span class="n"><a href="#t142">142</a></span><span class="t"><span class="str"> >>> x[np.array([3,3,-3,8])]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t143" class="pln"><span class="n"><a href="#t143">143</a></span><span class="t"><span class="str"> array([7, 7, 4, 2])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t144" class="pln"><span class="n"><a href="#t144">144</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t145" class="pln"><span class="n"><a href="#t145">145</a></span><span class="t"><span class="str">It is an error to have index values out of bounds: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t146" class="pln"><span class="n"><a href="#t146">146</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t147" class="pln"><span class="n"><a href="#t147">147</a></span><span class="t"><span class="str"> >>> x[np.array([3, 3, 20, 8])]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t148" class="pln"><span class="n"><a href="#t148">148</a></span><span class="t"><span class="str"> &lt;type 'exceptions.IndexError'>: index 20 out of bounds 0&lt;=index&lt;9</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t149" class="pln"><span class="n"><a href="#t149">149</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t150" class="pln"><span class="n"><a href="#t150">150</a></span><span class="t"><span class="str">Generally speaking, what is returned when index arrays are used is</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t151" class="pln"><span class="n"><a href="#t151">151</a></span><span class="t"><span class="str">an array with the same shape as the index array, but with the type</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t152" class="pln"><span class="n"><a href="#t152">152</a></span><span class="t"><span class="str">and values of the array being indexed. As an example, we can use a</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t153" class="pln"><span class="n"><a href="#t153">153</a></span><span class="t"><span class="str">multidimensional index array instead: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t154" class="pln"><span class="n"><a href="#t154">154</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t155" class="pln"><span class="n"><a href="#t155">155</a></span><span class="t"><span class="str"> >>> x[np.array([[1,1],[2,3]])]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t156" class="pln"><span class="n"><a href="#t156">156</a></span><span class="t"><span class="str"> array([[9, 9],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t157" class="pln"><span class="n"><a href="#t157">157</a></span><span class="t"><span class="str">        [8, 7]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t158" class="pln"><span class="n"><a href="#t158">158</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t159" class="pln"><span class="n"><a href="#t159">159</a></span><span class="t"><span class="str">Indexing Multi-dimensional arrays</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t160" class="pln"><span class="n"><a href="#t160">160</a></span><span class="t"><span class="str">=================================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t161" class="pln"><span class="n"><a href="#t161">161</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t162" class="pln"><span class="n"><a href="#t162">162</a></span><span class="t"><span class="str">Things become more complex when multidimensional arrays are indexed,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t163" class="pln"><span class="n"><a href="#t163">163</a></span><span class="t"><span class="str">particularly with multidimensional index arrays. These tend to be</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t164" class="pln"><span class="n"><a href="#t164">164</a></span><span class="t"><span class="str">more unusual uses, but they are permitted, and they are useful for some</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t165" class="pln"><span class="n"><a href="#t165">165</a></span><span class="t"><span class="str">problems. We'll  start with the simplest multidimensional case (using</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t166" class="pln"><span class="n"><a href="#t166">166</a></span><span class="t"><span class="str">the array y from the previous examples): ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t167" class="pln"><span class="n"><a href="#t167">167</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t168" class="pln"><span class="n"><a href="#t168">168</a></span><span class="t"><span class="str"> >>> y[np.array([0,2,4]), np.array([0,1,2])]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t169" class="pln"><span class="n"><a href="#t169">169</a></span><span class="t"><span class="str"> array([ 0, 15, 30])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t170" class="pln"><span class="n"><a href="#t170">170</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t171" class="pln"><span class="n"><a href="#t171">171</a></span><span class="t"><span class="str">In this case, if the index arrays have a matching shape, and there is</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t172" class="pln"><span class="n"><a href="#t172">172</a></span><span class="t"><span class="str">an index array for each dimension of the array being indexed, the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t173" class="pln"><span class="n"><a href="#t173">173</a></span><span class="t"><span class="str">resultant array has the same shape as the index arrays, and the values</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t174" class="pln"><span class="n"><a href="#t174">174</a></span><span class="t"><span class="str">correspond to the index set for each position in the index arrays. In</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t175" class="pln"><span class="n"><a href="#t175">175</a></span><span class="t"><span class="str">this example, the first index value is 0 for both index arrays, and</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t176" class="pln"><span class="n"><a href="#t176">176</a></span><span class="t"><span class="str">thus the first value of the resultant array is y[0,0]. The next value</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t177" class="pln"><span class="n"><a href="#t177">177</a></span><span class="t"><span class="str">is y[2,1], and the last is y[4,2].</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t178" class="pln"><span class="n"><a href="#t178">178</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t179" class="pln"><span class="n"><a href="#t179">179</a></span><span class="t"><span class="str">If the index arrays do not have the same shape, there is an attempt to</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t180" class="pln"><span class="n"><a href="#t180">180</a></span><span class="t"><span class="str">broadcast them to the same shape.  If they cannot be broadcast to the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t181" class="pln"><span class="n"><a href="#t181">181</a></span><span class="t"><span class="str">same shape, an exception is raised: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t182" class="pln"><span class="n"><a href="#t182">182</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t183" class="pln"><span class="n"><a href="#t183">183</a></span><span class="t"><span class="str"> >>> y[np.array([0,2,4]), np.array([0,1])]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t184" class="pln"><span class="n"><a href="#t184">184</a></span><span class="t"><span class="str"> &lt;type 'exceptions.ValueError'>: shape mismatch: objects cannot be</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t185" class="pln"><span class="n"><a href="#t185">185</a></span><span class="t"><span class="str"> broadcast to a single shape</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t186" class="pln"><span class="n"><a href="#t186">186</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t187" class="pln"><span class="n"><a href="#t187">187</a></span><span class="t"><span class="str">The broadcasting mechanism permits index arrays to be combined with</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t188" class="pln"><span class="n"><a href="#t188">188</a></span><span class="t"><span class="str">scalars for other indices. The effect is that the scalar value is used</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t189" class="pln"><span class="n"><a href="#t189">189</a></span><span class="t"><span class="str">for all the corresponding values of the index arrays: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t190" class="pln"><span class="n"><a href="#t190">190</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t191" class="pln"><span class="n"><a href="#t191">191</a></span><span class="t"><span class="str"> >>> y[np.array([0,2,4]), 1]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t192" class="pln"><span class="n"><a href="#t192">192</a></span><span class="t"><span class="str"> array([ 1, 15, 29])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t193" class="pln"><span class="n"><a href="#t193">193</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t194" class="pln"><span class="n"><a href="#t194">194</a></span><span class="t"><span class="str">Jumping to the next level of complexity, it is possible to only</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t195" class="pln"><span class="n"><a href="#t195">195</a></span><span class="t"><span class="str">partially index an array with index arrays. It takes a bit of thought</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t196" class="pln"><span class="n"><a href="#t196">196</a></span><span class="t"><span class="str">to understand what happens in such cases. For example if we just use</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t197" class="pln"><span class="n"><a href="#t197">197</a></span><span class="t"><span class="str">one index array with y: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t198" class="pln"><span class="n"><a href="#t198">198</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t199" class="pln"><span class="n"><a href="#t199">199</a></span><span class="t"><span class="str"> >>> y[np.array([0,2,4])]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t200" class="pln"><span class="n"><a href="#t200">200</a></span><span class="t"><span class="str"> array([[ 0,  1,  2,  3,  4,  5,  6],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t201" class="pln"><span class="n"><a href="#t201">201</a></span><span class="t"><span class="str">        [14, 15, 16, 17, 18, 19, 20],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t202" class="pln"><span class="n"><a href="#t202">202</a></span><span class="t"><span class="str">        [28, 29, 30, 31, 32, 33, 34]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t203" class="pln"><span class="n"><a href="#t203">203</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t204" class="pln"><span class="n"><a href="#t204">204</a></span><span class="t"><span class="str">What results is the construction of a new array where each value of</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t205" class="pln"><span class="n"><a href="#t205">205</a></span><span class="t"><span class="str">the index array selects one row from the array being indexed and the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t206" class="pln"><span class="n"><a href="#t206">206</a></span><span class="t"><span class="str">resultant array has the resulting shape (number of index elements,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t207" class="pln"><span class="n"><a href="#t207">207</a></span><span class="t"><span class="str">size of row).</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t208" class="pln"><span class="n"><a href="#t208">208</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t209" class="pln"><span class="n"><a href="#t209">209</a></span><span class="t"><span class="str">An example of where this may be useful is for a color lookup table</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t210" class="pln"><span class="n"><a href="#t210">210</a></span><span class="t"><span class="str">where we want to map the values of an image into RGB triples for</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t211" class="pln"><span class="n"><a href="#t211">211</a></span><span class="t"><span class="str">display. The lookup table could have a shape (nlookup, 3). Indexing</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t212" class="pln"><span class="n"><a href="#t212">212</a></span><span class="t"><span class="str">such an array with an image with shape (ny, nx) with dtype=np.uint8</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t213" class="pln"><span class="n"><a href="#t213">213</a></span><span class="t"><span class="str">(or any integer type so long as values are with the bounds of the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t214" class="pln"><span class="n"><a href="#t214">214</a></span><span class="t"><span class="str">lookup table) will result in an array of shape (ny, nx, 3) where a</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t215" class="pln"><span class="n"><a href="#t215">215</a></span><span class="t"><span class="str">triple of RGB values is associated with each pixel location.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t216" class="pln"><span class="n"><a href="#t216">216</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t217" class="pln"><span class="n"><a href="#t217">217</a></span><span class="t"><span class="str">In general, the shape of the resultant array will be the concatenation</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t218" class="pln"><span class="n"><a href="#t218">218</a></span><span class="t"><span class="str">of the shape of the index array (or the shape that all the index arrays</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t219" class="pln"><span class="n"><a href="#t219">219</a></span><span class="t"><span class="str">were broadcast to) with the shape of any unused dimensions (those not</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t220" class="pln"><span class="n"><a href="#t220">220</a></span><span class="t"><span class="str">indexed) in the array being indexed.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t221" class="pln"><span class="n"><a href="#t221">221</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t222" class="pln"><span class="n"><a href="#t222">222</a></span><span class="t"><span class="str">Boolean or "mask" index arrays</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t223" class="pln"><span class="n"><a href="#t223">223</a></span><span class="t"><span class="str">==============================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t224" class="pln"><span class="n"><a href="#t224">224</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t225" class="pln"><span class="n"><a href="#t225">225</a></span><span class="t"><span class="str">Boolean arrays used as indices are treated in a different manner</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t226" class="pln"><span class="n"><a href="#t226">226</a></span><span class="t"><span class="str">entirely than index arrays. Boolean arrays must be of the same shape</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t227" class="pln"><span class="n"><a href="#t227">227</a></span><span class="t"><span class="str">as the initial dimensions of the array being indexed. In the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t228" class="pln"><span class="n"><a href="#t228">228</a></span><span class="t"><span class="str">most straightforward case, the boolean array has the same shape: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t229" class="pln"><span class="n"><a href="#t229">229</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t230" class="pln"><span class="n"><a href="#t230">230</a></span><span class="t"><span class="str"> >>> b = y>20</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t231" class="pln"><span class="n"><a href="#t231">231</a></span><span class="t"><span class="str"> >>> y[b]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t232" class="pln"><span class="n"><a href="#t232">232</a></span><span class="t"><span class="str"> array([21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t233" class="pln"><span class="n"><a href="#t233">233</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t234" class="pln"><span class="n"><a href="#t234">234</a></span><span class="t"><span class="str">Unlike in the case of integer index arrays, in the boolean case, the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t235" class="pln"><span class="n"><a href="#t235">235</a></span><span class="t"><span class="str">result is a 1-D array containing all the elements in the indexed array</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t236" class="pln"><span class="n"><a href="#t236">236</a></span><span class="t"><span class="str">corresponding to all the true elements in the boolean array. The</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t237" class="pln"><span class="n"><a href="#t237">237</a></span><span class="t"><span class="str">elements in the indexed array are always iterated and returned in</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t238" class="pln"><span class="n"><a href="#t238">238</a></span><span class="t"><span class="str">:term:`row-major` (C-style) order. The result is also identical to</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t239" class="pln"><span class="n"><a href="#t239">239</a></span><span class="t"><span class="str">``y[np.nonzero(b)]``. As with index arrays, what is returned is a copy</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t240" class="pln"><span class="n"><a href="#t240">240</a></span><span class="t"><span class="str">of the data, not a view as one gets with slices.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t241" class="pln"><span class="n"><a href="#t241">241</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t242" class="pln"><span class="n"><a href="#t242">242</a></span><span class="t"><span class="str">The result will be multidimensional if y has more dimensions than b.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t243" class="pln"><span class="n"><a href="#t243">243</a></span><span class="t"><span class="str">For example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t244" class="pln"><span class="n"><a href="#t244">244</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t245" class="pln"><span class="n"><a href="#t245">245</a></span><span class="t"><span class="str"> >>> b[:,5] # use a 1-D boolean whose first dim agrees with the first dim of y</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t246" class="pln"><span class="n"><a href="#t246">246</a></span><span class="t"><span class="str"> array([False, False, False,  True,  True])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t247" class="pln"><span class="n"><a href="#t247">247</a></span><span class="t"><span class="str"> >>> y[b[:,5]]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t248" class="pln"><span class="n"><a href="#t248">248</a></span><span class="t"><span class="str"> array([[21, 22, 23, 24, 25, 26, 27],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t249" class="pln"><span class="n"><a href="#t249">249</a></span><span class="t"><span class="str">        [28, 29, 30, 31, 32, 33, 34]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t250" class="pln"><span class="n"><a href="#t250">250</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t251" class="pln"><span class="n"><a href="#t251">251</a></span><span class="t"><span class="str">Here the 4th and 5th rows are selected from the indexed array and</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t252" class="pln"><span class="n"><a href="#t252">252</a></span><span class="t"><span class="str">combined to make a 2-D array.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t253" class="pln"><span class="n"><a href="#t253">253</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t254" class="pln"><span class="n"><a href="#t254">254</a></span><span class="t"><span class="str">In general, when the boolean array has fewer dimensions than the array</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t255" class="pln"><span class="n"><a href="#t255">255</a></span><span class="t"><span class="str">being indexed, this is equivalent to y[b, ...], which means</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t256" class="pln"><span class="n"><a href="#t256">256</a></span><span class="t"><span class="str">y is indexed by b followed by as many : as are needed to fill</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t257" class="pln"><span class="n"><a href="#t257">257</a></span><span class="t"><span class="str">out the rank of y.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t258" class="pln"><span class="n"><a href="#t258">258</a></span><span class="t"><span class="str">Thus the shape of the result is one dimension containing the number</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t259" class="pln"><span class="n"><a href="#t259">259</a></span><span class="t"><span class="str">of True elements of the boolean array, followed by the remaining</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t260" class="pln"><span class="n"><a href="#t260">260</a></span><span class="t"><span class="str">dimensions of the array being indexed.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t261" class="pln"><span class="n"><a href="#t261">261</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t262" class="pln"><span class="n"><a href="#t262">262</a></span><span class="t"><span class="str">For example, using a 2-D boolean array of shape (2,3)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t263" class="pln"><span class="n"><a href="#t263">263</a></span><span class="t"><span class="str">with four True elements to select rows from a 3-D array of shape</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t264" class="pln"><span class="n"><a href="#t264">264</a></span><span class="t"><span class="str">(2,3,5) results in a 2-D result of shape (4,5): ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t265" class="pln"><span class="n"><a href="#t265">265</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t266" class="pln"><span class="n"><a href="#t266">266</a></span><span class="t"><span class="str"> >>> x = np.arange(30).reshape(2,3,5)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t267" class="pln"><span class="n"><a href="#t267">267</a></span><span class="t"><span class="str"> >>> x</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t268" class="pln"><span class="n"><a href="#t268">268</a></span><span class="t"><span class="str"> array([[[ 0,  1,  2,  3,  4],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t269" class="pln"><span class="n"><a href="#t269">269</a></span><span class="t"><span class="str">         [ 5,  6,  7,  8,  9],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t270" class="pln"><span class="n"><a href="#t270">270</a></span><span class="t"><span class="str">         [10, 11, 12, 13, 14]],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t271" class="pln"><span class="n"><a href="#t271">271</a></span><span class="t"><span class="str">        [[15, 16, 17, 18, 19],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t272" class="pln"><span class="n"><a href="#t272">272</a></span><span class="t"><span class="str">         [20, 21, 22, 23, 24],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t273" class="pln"><span class="n"><a href="#t273">273</a></span><span class="t"><span class="str">         [25, 26, 27, 28, 29]]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t274" class="pln"><span class="n"><a href="#t274">274</a></span><span class="t"><span class="str"> >>> b = np.array([[True, True, False], [False, True, True]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t275" class="pln"><span class="n"><a href="#t275">275</a></span><span class="t"><span class="str"> >>> x[b]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t276" class="pln"><span class="n"><a href="#t276">276</a></span><span class="t"><span class="str"> array([[ 0,  1,  2,  3,  4],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t277" class="pln"><span class="n"><a href="#t277">277</a></span><span class="t"><span class="str">        [ 5,  6,  7,  8,  9],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t278" class="pln"><span class="n"><a href="#t278">278</a></span><span class="t"><span class="str">        [20, 21, 22, 23, 24],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t279" class="pln"><span class="n"><a href="#t279">279</a></span><span class="t"><span class="str">        [25, 26, 27, 28, 29]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t280" class="pln"><span class="n"><a href="#t280">280</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t281" class="pln"><span class="n"><a href="#t281">281</a></span><span class="t"><span class="str">For further details, consult the numpy reference documentation on array indexing.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t282" class="pln"><span class="n"><a href="#t282">282</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t283" class="pln"><span class="n"><a href="#t283">283</a></span><span class="t"><span class="str">Combining index arrays with slices</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t284" class="pln"><span class="n"><a href="#t284">284</a></span><span class="t"><span class="str">==================================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t285" class="pln"><span class="n"><a href="#t285">285</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t286" class="pln"><span class="n"><a href="#t286">286</a></span><span class="t"><span class="str">Index arrays may be combined with slices. For example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t287" class="pln"><span class="n"><a href="#t287">287</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t288" class="pln"><span class="n"><a href="#t288">288</a></span><span class="t"><span class="str"> >>> y[np.array([0,2,4]),1:3]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t289" class="pln"><span class="n"><a href="#t289">289</a></span><span class="t"><span class="str"> array([[ 1,  2],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t290" class="pln"><span class="n"><a href="#t290">290</a></span><span class="t"><span class="str">        [15, 16],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t291" class="pln"><span class="n"><a href="#t291">291</a></span><span class="t"><span class="str">        [29, 30]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t292" class="pln"><span class="n"><a href="#t292">292</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t293" class="pln"><span class="n"><a href="#t293">293</a></span><span class="t"><span class="str">In effect, the slice is converted to an index array</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t294" class="pln"><span class="n"><a href="#t294">294</a></span><span class="t"><span class="str">np.array([[1,2]]) (shape (1,2)) that is broadcast with the index array</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t295" class="pln"><span class="n"><a href="#t295">295</a></span><span class="t"><span class="str">to produce a resultant array of shape (3,2).</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t296" class="pln"><span class="n"><a href="#t296">296</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t297" class="pln"><span class="n"><a href="#t297">297</a></span><span class="t"><span class="str">Likewise, slicing can be combined with broadcasted boolean indices: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t298" class="pln"><span class="n"><a href="#t298">298</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t299" class="pln"><span class="n"><a href="#t299">299</a></span><span class="t"><span class="str"> >>> b = y > 20</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t300" class="pln"><span class="n"><a href="#t300">300</a></span><span class="t"><span class="str"> >>> b</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t301" class="pln"><span class="n"><a href="#t301">301</a></span><span class="t"><span class="str"> array([[False, False, False, False, False, False, False],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t302" class="pln"><span class="n"><a href="#t302">302</a></span><span class="t"><span class="str">       [False, False, False, False, False, False, False],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t303" class="pln"><span class="n"><a href="#t303">303</a></span><span class="t"><span class="str">       [False, False, False, False, False, False, False],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t304" class="pln"><span class="n"><a href="#t304">304</a></span><span class="t"><span class="str">       [ True,  True,  True,  True,  True,  True,  True],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t305" class="pln"><span class="n"><a href="#t305">305</a></span><span class="t"><span class="str">       [ True,  True,  True,  True,  True,  True,  True]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t306" class="pln"><span class="n"><a href="#t306">306</a></span><span class="t"><span class="str"> >>> y[b[:,5],1:3]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t307" class="pln"><span class="n"><a href="#t307">307</a></span><span class="t"><span class="str"> array([[22, 23],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t308" class="pln"><span class="n"><a href="#t308">308</a></span><span class="t"><span class="str">        [29, 30]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t309" class="pln"><span class="n"><a href="#t309">309</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t310" class="pln"><span class="n"><a href="#t310">310</a></span><span class="t"><span class="str">Structural indexing tools</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t311" class="pln"><span class="n"><a href="#t311">311</a></span><span class="t"><span class="str">=========================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t312" class="pln"><span class="n"><a href="#t312">312</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t313" class="pln"><span class="n"><a href="#t313">313</a></span><span class="t"><span class="str">To facilitate easy matching of array shapes with expressions and in</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t314" class="pln"><span class="n"><a href="#t314">314</a></span><span class="t"><span class="str">assignments, the np.newaxis object can be used within array indices</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t315" class="pln"><span class="n"><a href="#t315">315</a></span><span class="t"><span class="str">to add new dimensions with a size of 1. For example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t316" class="pln"><span class="n"><a href="#t316">316</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t317" class="pln"><span class="n"><a href="#t317">317</a></span><span class="t"><span class="str"> >>> y.shape</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t318" class="pln"><span class="n"><a href="#t318">318</a></span><span class="t"><span class="str"> (5, 7)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t319" class="pln"><span class="n"><a href="#t319">319</a></span><span class="t"><span class="str"> >>> y[:,np.newaxis,:].shape</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t320" class="pln"><span class="n"><a href="#t320">320</a></span><span class="t"><span class="str"> (5, 1, 7)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t321" class="pln"><span class="n"><a href="#t321">321</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t322" class="pln"><span class="n"><a href="#t322">322</a></span><span class="t"><span class="str">Note that there are no new elements in the array, just that the</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t323" class="pln"><span class="n"><a href="#t323">323</a></span><span class="t"><span class="str">dimensionality is increased. This can be handy to combine two</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t324" class="pln"><span class="n"><a href="#t324">324</a></span><span class="t"><span class="str">arrays in a way that otherwise would require explicitly reshaping</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t325" class="pln"><span class="n"><a href="#t325">325</a></span><span class="t"><span class="str">operations. For example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t326" class="pln"><span class="n"><a href="#t326">326</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t327" class="pln"><span class="n"><a href="#t327">327</a></span><span class="t"><span class="str"> >>> x = np.arange(5)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t328" class="pln"><span class="n"><a href="#t328">328</a></span><span class="t"><span class="str"> >>> x[:,np.newaxis] + x[np.newaxis,:]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t329" class="pln"><span class="n"><a href="#t329">329</a></span><span class="t"><span class="str"> array([[0, 1, 2, 3, 4],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t330" class="pln"><span class="n"><a href="#t330">330</a></span><span class="t"><span class="str">        [1, 2, 3, 4, 5],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t331" class="pln"><span class="n"><a href="#t331">331</a></span><span class="t"><span class="str">        [2, 3, 4, 5, 6],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t332" class="pln"><span class="n"><a href="#t332">332</a></span><span class="t"><span class="str">        [3, 4, 5, 6, 7],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t333" class="pln"><span class="n"><a href="#t333">333</a></span><span class="t"><span class="str">        [4, 5, 6, 7, 8]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t334" class="pln"><span class="n"><a href="#t334">334</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t335" class="pln"><span class="n"><a href="#t335">335</a></span><span class="t"><span class="str">The ellipsis syntax maybe used to indicate selecting in full any</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t336" class="pln"><span class="n"><a href="#t336">336</a></span><span class="t"><span class="str">remaining unspecified dimensions. For example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t337" class="pln"><span class="n"><a href="#t337">337</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t338" class="pln"><span class="n"><a href="#t338">338</a></span><span class="t"><span class="str"> >>> z = np.arange(81).reshape(3,3,3,3)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t339" class="pln"><span class="n"><a href="#t339">339</a></span><span class="t"><span class="str"> >>> z[1,...,2]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t340" class="pln"><span class="n"><a href="#t340">340</a></span><span class="t"><span class="str"> array([[29, 32, 35],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t341" class="pln"><span class="n"><a href="#t341">341</a></span><span class="t"><span class="str">        [38, 41, 44],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t342" class="pln"><span class="n"><a href="#t342">342</a></span><span class="t"><span class="str">        [47, 50, 53]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t343" class="pln"><span class="n"><a href="#t343">343</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t344" class="pln"><span class="n"><a href="#t344">344</a></span><span class="t"><span class="str">This is equivalent to: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t345" class="pln"><span class="n"><a href="#t345">345</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t346" class="pln"><span class="n"><a href="#t346">346</a></span><span class="t"><span class="str"> >>> z[1,:,:,2]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t347" class="pln"><span class="n"><a href="#t347">347</a></span><span class="t"><span class="str"> array([[29, 32, 35],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t348" class="pln"><span class="n"><a href="#t348">348</a></span><span class="t"><span class="str">        [38, 41, 44],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t349" class="pln"><span class="n"><a href="#t349">349</a></span><span class="t"><span class="str">        [47, 50, 53]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t350" class="pln"><span class="n"><a href="#t350">350</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t351" class="pln"><span class="n"><a href="#t351">351</a></span><span class="t"><span class="str">Assigning values to indexed arrays</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t352" class="pln"><span class="n"><a href="#t352">352</a></span><span class="t"><span class="str">==================================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t353" class="pln"><span class="n"><a href="#t353">353</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t354" class="pln"><span class="n"><a href="#t354">354</a></span><span class="t"><span class="str">As mentioned, one can select a subset of an array to assign to using</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t355" class="pln"><span class="n"><a href="#t355">355</a></span><span class="t"><span class="str">a single index, slices, and index and mask arrays. The value being</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t356" class="pln"><span class="n"><a href="#t356">356</a></span><span class="t"><span class="str">assigned to the indexed array must be shape consistent (the same shape</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t357" class="pln"><span class="n"><a href="#t357">357</a></span><span class="t"><span class="str">or broadcastable to the shape the index produces). For example, it is</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t358" class="pln"><span class="n"><a href="#t358">358</a></span><span class="t"><span class="str">permitted to assign a constant to a slice: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t359" class="pln"><span class="n"><a href="#t359">359</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t360" class="pln"><span class="n"><a href="#t360">360</a></span><span class="t"><span class="str"> >>> x = np.arange(10)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t361" class="pln"><span class="n"><a href="#t361">361</a></span><span class="t"><span class="str"> >>> x[2:7] = 1</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t362" class="pln"><span class="n"><a href="#t362">362</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t363" class="pln"><span class="n"><a href="#t363">363</a></span><span class="t"><span class="str">or an array of the right size: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t364" class="pln"><span class="n"><a href="#t364">364</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t365" class="pln"><span class="n"><a href="#t365">365</a></span><span class="t"><span class="str"> >>> x[2:7] = np.arange(5)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t366" class="pln"><span class="n"><a href="#t366">366</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t367" class="pln"><span class="n"><a href="#t367">367</a></span><span class="t"><span class="str">Note that assignments may result in changes if assigning</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t368" class="pln"><span class="n"><a href="#t368">368</a></span><span class="t"><span class="str">higher types to lower types (like floats to ints) or even</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t369" class="pln"><span class="n"><a href="#t369">369</a></span><span class="t"><span class="str">exceptions (assigning complex to floats or ints): ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t370" class="pln"><span class="n"><a href="#t370">370</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t371" class="pln"><span class="n"><a href="#t371">371</a></span><span class="t"><span class="str"> >>> x[1] = 1.2</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t372" class="pln"><span class="n"><a href="#t372">372</a></span><span class="t"><span class="str"> >>> x[1]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t373" class="pln"><span class="n"><a href="#t373">373</a></span><span class="t"><span class="str"> 1</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t374" class="pln"><span class="n"><a href="#t374">374</a></span><span class="t"><span class="str"> >>> x[1] = 1.2j</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t375" class="pln"><span class="n"><a href="#t375">375</a></span><span class="t"><span class="str"> TypeError: can't convert complex to int</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t376" class="pln"><span class="n"><a href="#t376">376</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t377" class="pln"><span class="n"><a href="#t377">377</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t378" class="pln"><span class="n"><a href="#t378">378</a></span><span class="t"><span class="str">Unlike some of the references (such as array and mask indices)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t379" class="pln"><span class="n"><a href="#t379">379</a></span><span class="t"><span class="str">assignments are always made to the original data in the array</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t380" class="pln"><span class="n"><a href="#t380">380</a></span><span class="t"><span class="str">(indeed, nothing else would make sense!). Note though, that some</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t381" class="pln"><span class="n"><a href="#t381">381</a></span><span class="t"><span class="str">actions may not work as one may naively expect. This particular</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t382" class="pln"><span class="n"><a href="#t382">382</a></span><span class="t"><span class="str">example is often surprising to people: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t383" class="pln"><span class="n"><a href="#t383">383</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t384" class="pln"><span class="n"><a href="#t384">384</a></span><span class="t"><span class="str"> >>> x = np.arange(0, 50, 10)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t385" class="pln"><span class="n"><a href="#t385">385</a></span><span class="t"><span class="str"> >>> x</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t386" class="pln"><span class="n"><a href="#t386">386</a></span><span class="t"><span class="str"> array([ 0, 10, 20, 30, 40])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t387" class="pln"><span class="n"><a href="#t387">387</a></span><span class="t"><span class="str"> >>> x[np.array([1, 1, 3, 1])] += 1</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t388" class="pln"><span class="n"><a href="#t388">388</a></span><span class="t"><span class="str"> >>> x</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t389" class="pln"><span class="n"><a href="#t389">389</a></span><span class="t"><span class="str"> array([ 0, 11, 20, 31, 40])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t390" class="pln"><span class="n"><a href="#t390">390</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t391" class="pln"><span class="n"><a href="#t391">391</a></span><span class="t"><span class="str">Where people expect that the 1st location will be incremented by 3.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t392" class="pln"><span class="n"><a href="#t392">392</a></span><span class="t"><span class="str">In fact, it will only be incremented by 1. The reason is because</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t393" class="pln"><span class="n"><a href="#t393">393</a></span><span class="t"><span class="str">a new array is extracted from the original (as a temporary) containing</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t394" class="pln"><span class="n"><a href="#t394">394</a></span><span class="t"><span class="str">the values at 1, 1, 3, 1, then the value 1 is added to the temporary,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t395" class="pln"><span class="n"><a href="#t395">395</a></span><span class="t"><span class="str">and then the temporary is assigned back to the original array. Thus</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t396" class="pln"><span class="n"><a href="#t396">396</a></span><span class="t"><span class="str">the value of the array at x[1]+1 is assigned to x[1] three times,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t397" class="pln"><span class="n"><a href="#t397">397</a></span><span class="t"><span class="str">rather than being incremented 3 times.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t398" class="pln"><span class="n"><a href="#t398">398</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t399" class="pln"><span class="n"><a href="#t399">399</a></span><span class="t"><span class="str">Dealing with variable numbers of indices within programs</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t400" class="pln"><span class="n"><a href="#t400">400</a></span><span class="t"><span class="str">========================================================</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t401" class="pln"><span class="n"><a href="#t401">401</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t402" class="pln"><span class="n"><a href="#t402">402</a></span><span class="t"><span class="str">The index syntax is very powerful but limiting when dealing with</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t403" class="pln"><span class="n"><a href="#t403">403</a></span><span class="t"><span class="str">a variable number of indices. For example, if you want to write</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t404" class="pln"><span class="n"><a href="#t404">404</a></span><span class="t"><span class="str">a function that can handle arguments with various numbers of</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t405" class="pln"><span class="n"><a href="#t405">405</a></span><span class="t"><span class="str">dimensions without having to write special case code for each</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t406" class="pln"><span class="n"><a href="#t406">406</a></span><span class="t"><span class="str">number of possible dimensions, how can that be done? If one</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t407" class="pln"><span class="n"><a href="#t407">407</a></span><span class="t"><span class="str">supplies to the index a tuple, the tuple will be interpreted</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t408" class="pln"><span class="n"><a href="#t408">408</a></span><span class="t"><span class="str">as a list of indices. For example (using the previous definition</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t409" class="pln"><span class="n"><a href="#t409">409</a></span><span class="t"><span class="str">for the array z): ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t410" class="pln"><span class="n"><a href="#t410">410</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t411" class="pln"><span class="n"><a href="#t411">411</a></span><span class="t"><span class="str"> >>> indices = (1,1,1,1)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t412" class="pln"><span class="n"><a href="#t412">412</a></span><span class="t"><span class="str"> >>> z[indices]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t413" class="pln"><span class="n"><a href="#t413">413</a></span><span class="t"><span class="str"> 40</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t414" class="pln"><span class="n"><a href="#t414">414</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t415" class="pln"><span class="n"><a href="#t415">415</a></span><span class="t"><span class="str">So one can use code to construct tuples of any number of indices</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t416" class="pln"><span class="n"><a href="#t416">416</a></span><span class="t"><span class="str">and then use these within an index.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t417" class="pln"><span class="n"><a href="#t417">417</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t418" class="pln"><span class="n"><a href="#t418">418</a></span><span class="t"><span class="str">Slices can be specified within programs by using the slice() function</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t419" class="pln"><span class="n"><a href="#t419">419</a></span><span class="t"><span class="str">in Python. For example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t420" class="pln"><span class="n"><a href="#t420">420</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t421" class="pln"><span class="n"><a href="#t421">421</a></span><span class="t"><span class="str"> >>> indices = (1,1,1,slice(0,2)) # same as [1,1,1,0:2]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t422" class="pln"><span class="n"><a href="#t422">422</a></span><span class="t"><span class="str"> >>> z[indices]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t423" class="pln"><span class="n"><a href="#t423">423</a></span><span class="t"><span class="str"> array([39, 40])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t424" class="pln"><span class="n"><a href="#t424">424</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t425" class="pln"><span class="n"><a href="#t425">425</a></span><span class="t"><span class="str">Likewise, ellipsis can be specified by code by using the Ellipsis</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t426" class="pln"><span class="n"><a href="#t426">426</a></span><span class="t"><span class="str">object: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t427" class="pln"><span class="n"><a href="#t427">427</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t428" class="pln"><span class="n"><a href="#t428">428</a></span><span class="t"><span class="str"> >>> indices = (1, Ellipsis, 1) # same as [1,...,1]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t429" class="pln"><span class="n"><a href="#t429">429</a></span><span class="t"><span class="str"> >>> z[indices]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t430" class="pln"><span class="n"><a href="#t430">430</a></span><span class="t"><span class="str"> array([[28, 31, 34],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t431" class="pln"><span class="n"><a href="#t431">431</a></span><span class="t"><span class="str">        [37, 40, 43],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t432" class="pln"><span class="n"><a href="#t432">432</a></span><span class="t"><span class="str">        [46, 49, 52]])</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t433" class="pln"><span class="n"><a href="#t433">433</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t434" class="pln"><span class="n"><a href="#t434">434</a></span><span class="t"><span class="str">For this reason it is possible to use the output from the np.nonzero()</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t435" class="pln"><span class="n"><a href="#t435">435</a></span><span class="t"><span class="str">function directly as an index since it always returns a tuple of index</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t436" class="pln"><span class="n"><a href="#t436">436</a></span><span class="t"><span class="str">arrays.</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t437" class="pln"><span class="n"><a href="#t437">437</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t438" class="pln"><span class="n"><a href="#t438">438</a></span><span class="t"><span class="str">Because the special treatment of tuples, they are not automatically</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t439" class="pln"><span class="n"><a href="#t439">439</a></span><span class="t"><span class="str">converted to an array as a list would be. As an example: ::</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t440" class="pln"><span class="n"><a href="#t440">440</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t441" class="pln"><span class="n"><a href="#t441">441</a></span><span class="t"><span class="str"> >>> z[[1,1,1,1]] # produces a large array</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t442" class="pln"><span class="n"><a href="#t442">442</a></span><span class="t"><span class="str"> array([[[[27, 28, 29],</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t443" class="pln"><span class="n"><a href="#t443">443</a></span><span class="t"><span class="str">          [30, 31, 32], ...</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t444" class="pln"><span class="n"><a href="#t444">444</a></span><span class="t"><span class="str"> >>> z[(1,1,1,1)] # returns a single value</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t445" class="pln"><span class="n"><a href="#t445">445</a></span><span class="t"><span class="str"> 40</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t446" class="pln"><span class="n"><a href="#t446">446</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t447" class="pln"><span class="n"><a href="#t447">447</a></span><span class="t"><span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
+</div>
+<div id="footer">
+    <div class="content">
+        <p>
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.1</a>,
+            created at 2020-05-11 11:56
+        </p>
+    </div>
+</div>
+</body>
+</html>
